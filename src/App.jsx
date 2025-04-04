@@ -1,10 +1,14 @@
 import React from 'react';
 import { colors } from './utils/colors';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Philosophy from './components/Philosophy';
-import Projects from './components/Projects';
-import CTA from './components/CTA';
+
+// Componentes
+import NavigationBar from './components/NavigationBar';
+import HeroSection from './components/HeroSection';
+import ProcessSection from './components/ProcessSection';
+import PrincipiosSection from './components/PrincipiosSection';
+import EcossistemaSolucoes from './components/EcossistemaSolucoes';
+import ValuationSection from './components/ValuationSection';
+import JornadaEmpreendedora from './components/JornadaEmpreendedora';
 import Footer from './components/Footer';
 
 const App = () => {
@@ -12,16 +16,15 @@ const App = () => {
     <div style={{ 
       backgroundColor: colors.dark.background,
       color: '#ffffff',
-      minHeight: '100vh',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center'
+      minHeight: '100vh'
     }}>
-      <Header />
-      <Hero />
-      <Philosophy />
-      <Projects />
-      <CTA />
+      <NavigationBar />
+      <HeroSection />
+      <ProcessSection />
+      <PrincipiosSection />
+      <EcossistemaSolucoes />
+      <ValuationSection />
+      <JornadaEmpreendedora />
       <Footer />
     </div>
   );
