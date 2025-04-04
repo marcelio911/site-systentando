@@ -11,6 +11,7 @@ const NavigationBar = () => {
     { id: 'processo', label: 'Como Funciona', href: '#processo' },
     { id: 'principios', label: 'Princípios', href: '#principios' },
     { id: 'ecossistema', label: 'Projetos', href: '#ecossistema' },
+    { id: 'impacto', label: 'Impacto', href: '#impacto' },
     { id: 'valuation', label: 'Valuation', href: '#valuation' },
     { id: 'jornada', label: 'Junte-se', href: '#jornada' }
   ];
@@ -50,10 +51,13 @@ const NavigationBar = () => {
         left: 0,
         right: 0,
         backgroundColor: isScrolled ? colors.dark.background : 'transparent',
-        transition: 'background-color 0.3s ease, padding 0.3s ease',
+        transition: 'background-color 0.3s ease, padding 0.3s ease, backdrop-filter 0.3s ease',
         padding: isScrolled ? '0.5rem 2rem' : '1rem 2rem',
         zIndex: 100,
-        boxShadow: isScrolled ? '0 4px 6px rgba(0, 0, 0, 0.1)' : 'none'
+        boxShadow: isScrolled ? '0 4px 6px rgba(0, 0, 0, 0.1)' : 'none',
+        backdropFilter: isScrolled ? 'blur(10px)' : 'none',
+        WebkitBackdropFilter: isScrolled ? 'blur(10px)' : 'none',
+        borderBottom: isScrolled ? `1px solid ${colors.dark.border}` : 'none'
       }}
     >
       <div 
@@ -73,7 +77,8 @@ const NavigationBar = () => {
             background: `linear-gradient(90deg, ${colors.primary.main}, ${colors.accent.main})`,
             WebkitBackgroundClip: 'text',
             backgroundClip: 'text',
-            color: 'transparent'
+            color: 'transparent',
+            textShadow: `0 0 10px ${colors.primary.main}33`
           }}
         >
           SYSTENTANDO
@@ -136,10 +141,19 @@ const NavigationBar = () => {
             fontWeight: 'bold',
             fontSize: '0.9rem',
             cursor: 'pointer',
-            transition: 'opacity 0.3s ease'
+            transition: 'all 0.3s ease',
+            boxShadow: `0 4px 10px ${colors.accent.main}44`
           }}
-          onMouseOver={(e) => e.currentTarget.style.opacity = '0.9'}
-          onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
+          onMouseOver={(e) => {
+            e.currentTarget.style.opacity = '0.9';
+            e.currentTarget.style.transform = 'translateY(-2px)';
+            e.currentTarget.style.boxShadow = `0 6px 12px ${colors.accent.main}66`;
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.opacity = '1';
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = `0 4px 10px ${colors.accent.main}44`;
+          }}
           onClick={() => document.querySelector('#jornada').scrollIntoView({
             behavior: 'smooth'
           })}
