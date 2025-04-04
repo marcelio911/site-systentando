@@ -121,7 +121,7 @@ const HeroSection = () => {
     <section 
       id="hero"
       style={{
-        backgroundColor: colors.dark.background,
+        backgroundColor: colors.systentando.background,
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',

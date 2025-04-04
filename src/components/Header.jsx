@@ -3,7 +3,8 @@ import { colors } from '../utils/colors';
 
 const Header = () => {
   return (
-    <header className="w-full p-6 flex justify-between items-center">
+    <header className="w-full bg-[#004f4f] text-white p-6 flex justify-between items-center">
+          
       <div 
         className="text-2xl font-bold" 
         style={{ 

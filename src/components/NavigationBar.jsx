@@ -50,7 +50,8 @@ const NavigationBar = () => {
         top: 0,
         left: 0,
         right: 0,
-        backgroundColor: isScrolled ? colors.dark.background : 'transparent',
+        // backgroundColor: isScrolled ? colors.systentando.background : 'transparent',
+        backgroundColor: colors.systentando.background,
         transition: 'background-color 0.3s ease, padding 0.3s ease, backdrop-filter 0.3s ease',
         padding: isScrolled ? '0.5rem 2rem' : '1rem 2rem',
         zIndex: 100,
@@ -81,7 +82,7 @@ const NavigationBar = () => {
             textShadow: `0 0 10px ${colors.primary.main}33`
           }}
         >
-          SYSTENTANDO
+          <img src={'assets/images/systentando-logo.png'} alt={'Systentando Logo'} />
         </div>
         
         {/* Links de navegação */}
