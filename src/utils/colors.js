@@ -19,6 +19,13 @@ export const colors = {
     text: '#ffffff',
     subtext: '#aaaaaa'
   },
+  systentando: {
+    background: '#004f4f',
+    card: '#1e1e1e',
+    border: '#333333',
+    text: '#ffffff',
+    subtext: '#aaaaaa'
+  },
   feedback: {
     success: '#00b894',
     warning: '#fdcb6e',
