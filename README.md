@@ -1,113 +1,91 @@
-# [Systentando WebPage UI](https://systentando.com) ![version](https://img.shields.io/badge/version-0.0.1-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/marcelio911/site-systentando.svg?maxAge=2592000)](https://github.com/marcelio911/site-systentando/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/marcelio911/site-systentando.svg?maxAge=2592000)](https://github.com/marcelio911/site-systentando/issues?q=is%3Aissue+is%3Aclosed) [![Join the chat at https://gitter.im/NIT-dgp/General](https://badges.gitter.im/NIT-dgp/General.svg)](https://discord.gg/mp5nT6AY) [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/2XEykJuJ)
+# Systentando Landing Page
 
-![Site Systentando](https://github.com/marcelio911/site-systentando/blob/develop/src/assets/img/opt_pk_react_thumbnail.jpg?raw=true)
+## Sobre o Projeto
 
-Bem-vindo ao repositório do projeto Systentando! Este projeto é uma landing page moderna para o ecossistema Systentando, focado em conectar desenvolvedores, promover o empreendedorismo e melhorar o equilíbrio entre produtividade, bem-estar e crescimento pessoal.
+Landing page para o projeto Systentando One, um HUB de desenvolvedores com visão empreendedora.
 
-## Visão Geral
+## Configuração do Ambiente
 
-O Systentando é um HUB de desenvolvedores com visão empreendedora que acredita que o empreendedorismo pode transformar vidas. Nosso ecossistema inclui diversos produtos integrados:
+### Pré-requisitos
 
-- **ZEN Launcher**: Reimagine sua experiência digital com foco no bem-estar
-- **Meu Nutri**: Assistente nutricional inteligente com análise por imagem
-- **Saúde e Bem-estar**: Programa integrado para desenvolvimento físico e mental
-- **Momento do Investimento**: Simulações e trilhas de aprendizado sobre investimentos
-- **Empreenda4Devs**: Transforme seus conhecimentos técnicos em produtos
+- Node.js (versão 16+)
+- npm ou yarn
+- Firebase CLI (para deploy)
 
-## Tecnologias Principais
+### Instalação
 
-1. **React:**
-   - O frontend do site é desenvolvido utilizando a biblioteca React, permitindo a criação de interfaces de usuário interativas e reativas.
-   - Utilizamos componentes modernos e práticas de UI/UX para uma experiência agradável.
+```bash
+# Instalar dependências
+npm install
 
-2. **Typescript:**
-   - Optamos por usar Typescript para garantir um código mais robusto e escalável, proporcionando tipagem estática e facilitando a manutenção do código.
+# Configurar Git Hooks (Husky)
+npm run prepare
+chmod +x .husky/install-hooks.sh
+./.husky/install-hooks.sh
 
-3. **Google Functions:**
-   - As funções serverless do Google Cloud Platform (Google Functions) serão implementadas para processar lógica de servidor, garantindo escalabilidade e eficiência.
+# Iniciar servidor de desenvolvimento
+npm start
 
-4. **Tailwind CSS:**
-   - Utilizamos o Tailwind para estilização eficiente e responsiva, garantindo uma interface moderna e adaptável.
+# Construir para produção
+npm run build
+```
 
-## Pré-requisitos
+## Validação de Código
 
-- Node.js 16+ instalado para gerenciar as dependências do projeto.
-- É necessário uma conta no Google Cloud Platform para utilizar as Google Functions (somente para deploy).
-- Preferencialmente usar o gerenciador de pacotes Yarn.
+Este projeto utiliza Husky para garantir a qualidade do código:
+
+- **pre-commit**: Executa ESLint para validar o código antes do commit
+- **pre-push**: Executa build e testes completos antes do push
+
+Se necessário, você pode executar a validação manualmente:
+
+```bash
+# Executar apenas ESLint
+npm run lint
+
+# Executar validação completa (ESLint + build)
+npm run validate
+```
+
+## Deployment CI/CD
+
+Este projeto utiliza GitHub Actions para CI/CD automatizado com deploy para Firebase Hosting.
+
+### Configuração Inicial (apenas uma vez)
+
+1. Certifique-se de ter permissões de administrador no projeto Firebase
+2. Execute o script de configuração:
+
+```bash
+chmod +x .github/workflows/firebase-setup.sh
+./.github/workflows/firebase-setup.sh
+```
+
+3. Siga as instruções exibidas para configurar o secret `FIREBASE_SERVICE_ACCOUNT` no GitHub
+
+### Fluxo de Trabalho
+
+- **Pull Requests para `main`**: Executa build e testes para validação
+- **Push para `main`**: Realiza deploy automático para o Firebase Hosting
 
 ## Estrutura do Projeto
 
-- **`/src`**: Contém todo o código-fonte do frontend React.
-  - **`/components`**: Componentes reutilizáveis da interface.
-  - **`/utils`**: Utilitários e funções helpers.
-- **`/public`**: Arquivos estáticos como imagens e favicons.
+- `/src`: Código fonte da aplicação
+  - `/components`: Componentes React reutilizáveis
+  - `/utils`: Utilitários e configurações
+  - `/assets`: Imagens e outros recursos estáticos
+- `/.github/workflows`: Configurações de CI/CD
+- `/.husky`: Git hooks para validação de código
 
-## Como Iniciar o Desenvolvimento
+## Tecnologias Utilizadas
 
-1. **Clone o repositório:**
-   ```bash
-   git clone https://github.com/marcelio911/site-systentando.git
-   cd site-systentando
-   ```
-
-2. **Instalação de Dependências:**
-   ```bash
-   yarn install
-   ```
-
-3. **Executar o Projeto Localmente:**
-   ```bash
-   yarn start
-   ```
-   O site estará disponível em `http://localhost:3000`
-
-4. **Build do Projeto:**
-   ```bash
-   yarn build
-   ```
-
-5. **Deploy para Google Cloud:**
-   ```bash
-   yarn run deploy
-   ```
-   (Requer configuração prévia do `.firebaserc` e `firebase.json`)
-
-## Design e Features
-
-- **Design Moderno**: Interface escura com acentos de cores vibrantes
-- **Altamente Responsivo**: Adaptado para todos os dispositivos e tamanhos de tela
-- **Interativo**: Elementos de UI que respondem ao usuário para maior engajamento
-- **Acessível**: Seguindo as melhores práticas de acessibilidade web
-
-## Componentes Principais
-
-- **HeroSection**: Seção principal com mensagem de impacto e chamada para ação
-- **EcossistemaSolucoes**: Visão geral dos produtos do ecossistema
-- **ValuationSection**: Informações sobre o valor projetado do ecossistema
-- **ImpactoSocialSection**: Como o projeto afeta positivamente seus usuários
-
-## Contribuição
-
-Agradecemos seu interesse em contribuir para o Systentando! Para contribuir:
-
-1. Faça um fork do repositório
-2. Crie uma branch para sua feature (`git checkout -b feature/nome-da-feature`)
-3. Commit suas mudanças (`git commit -m 'Adiciona nova feature'`)
-4. Push para a branch (`git push origin feature/nome-da-feature`)
-5. Abra um Pull Request
-
-Por favor, certifique-se de seguir nossas diretrizes de código e padrões de commit.
-
-## Contato
-
-- **Desenvolvedor**: [@marcelio911](https://github.com/marcelio911)
-- **Discord**: [Entre em nosso servidor](https://discord.gg/2XEykJuJ)
-- **Email**: [contato@systentando.com](mailto:contato@systentando.com)
+- React.js
+- Tailwind CSS
+- Firebase Hosting
+- GitHub Actions
+- Husky (Git Hooks)
+- ESLint
 
 ## Licença
 
-Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para detalhes.
-
----
-
-**Desenvolvido com 💚 pela equipe Systentando, com assistência de Claude AI**
+Todos os direitos reservados.

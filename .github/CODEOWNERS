@@ -1,0 +1,4 @@
+# Definição de proprietários do código para revisão automática de PR
+
+# Configurações de GitHub Actions
+/.github/workflows/ @marcelio911
