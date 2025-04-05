@@ -697,7 +697,7 @@ const HeroSection = () => {
           Role para descobrir mais
         </p>
         
-        <style jsx>{`
+        <style className="jsx-styles">{`
           @keyframes scrollPulse {
             0% { transform: scaleY(0); transform-origin: top; }
             50% { transform: scaleY(1); transform-origin: top; }

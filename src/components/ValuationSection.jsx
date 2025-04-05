@@ -595,8 +595,8 @@ const ValuationSection = () => {
               fontStyle: 'italic'
             }}
           >
-            "O ecossistema Systentando tem um modelo de negócio e proposta de valor com alto potencial de escalabilidade, 
-            abordando questões reais do mercado com soluções inovadoras."
+            &quot;O ecossistema Systentando tem um modelo de negócio e proposta de valor com alto potencial de escalabilidade, 
+            abordando questões reais do mercado com soluções inovadoras.&quot;
           </p>
         </div>
 

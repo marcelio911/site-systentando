@@ -395,7 +395,7 @@ const ImpactoSocialSection = () => {
                   zIndex: 1
                 }}
               >
-                "{testimonial.quote}"
+                &quot;{testimonial.quote}&quot;
               </p>
               
               <div
