@@ -152,13 +152,16 @@ const ValuationSection = () => {
       { threshold: 0.1 } // Dispara quando 10% da seção estiver visível
     );
     
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    // Armazenar a referência em uma variável para uso no cleanup
+    const sectionRefCurrent = sectionRef.current;
+    
+    if (sectionRefCurrent) {
+      observer.observe(sectionRefCurrent);
     }
     
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (sectionRefCurrent) {
+        observer.unobserve(sectionRefCurrent);
       }
     };
   }, []);

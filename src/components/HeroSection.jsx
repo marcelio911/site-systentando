@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { colors } from '../utils/colors';
-import { ArrowRight } from 'lucide-react';
+// import { ArrowRight } from 'lucide-react'; // Removido - não está sendo utilizado
 
 const HeroSection = () => {
   const [currentPhrase, setCurrentPhrase] = useState(0);
@@ -14,6 +14,18 @@ const HeroSection = () => {
   // Referência para o medidor de curiosidade
   const curiosityMeterRef = useRef(null);
   const [curiosityLevel, setCuriosityLevel] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Verificar se é dispositivo móvel
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   // Alternar frases a cada 3 segundos
   useEffect(() => {
@@ -22,7 +34,7 @@ const HeroSection = () => {
     }, 3000);
     
     return () => clearInterval(interval);
-  }, []);
+  }, [phrases.length]); // Adicionando phrases.length como dependência
   
   // Animação de contagem regressiva
   const [countdown, setCountdown] = useState({
@@ -121,7 +133,7 @@ const HeroSection = () => {
     <section 
       id="hero"
       style={{
-        backgroundColor: colors.dark.background,
+        backgroundColor: colors.systentando.background,
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
@@ -151,7 +163,7 @@ const HeroSection = () => {
       {/* Layout de duas colunas */}
       <div style={{ 
         display: 'flex', 
-        flexDirection: 'row', 
+        flexDirection: isMobile ? 'column' : 'row', 
         justifyContent: 'space-between',
         alignItems: 'center',
         width: '100%',
@@ -163,17 +175,18 @@ const HeroSection = () => {
         {/* Coluna Esquerda - Conteúdo Textual */}
         <div style={{ 
           flex: '1', 
-          paddingRight: '2rem', 
+          paddingRight: isMobile ? '0' : '2rem', 
           textAlign: 'left', 
-          maxWidth: '650px',
+          maxWidth: isMobile ? '100%' : '650px',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'flex-start'
+          alignItems: isMobile ? 'center' : 'flex-start',
+          marginBottom: isMobile ? '2rem' : '0'
         }}>
           {/* Título principal com efeito de gradiente */}
           <h1 
             style={{
-              fontSize: '4rem',
+              fontSize: isMobile ? '2.5rem' : '4rem',
               fontWeight: 'bold',
               color: 'white',
               marginBottom: '0.5rem',
@@ -181,7 +194,7 @@ const HeroSection = () => {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               textShadow: '0 0 20px rgba(0,79,79,0.3)',
-              textAlign: 'left'
+              textAlign: isMobile ? 'center' : 'left'
             }}
           >
             Conexões que Transformam
@@ -190,46 +203,52 @@ const HeroSection = () => {
           {/* Título secundário */}
           <h2 
             style={{
-              fontSize: '2rem',
+              fontSize: isMobile ? '1.8rem' : '2rem',
               fontWeight: 'bold',
               color: 'white',
               marginBottom: '1.5rem',
-              textAlign: 'left'
+              textAlign: isMobile ? 'center' : 'left'
             }}
           >
             Systentando
           </h2>
           
           {/* Subtítulo dinâmico */}
-          <div 
+          <h1 
             style={{
-              height: '2rem',
-              marginBottom: '2rem',
-              textAlign: 'left'
+              fontSize: isMobile ? '2.5rem' : '4rem',
+              fontWeight: 'bold',
+              color: 'white',
+              marginBottom: '0.5rem',
+              background: `linear-gradient(to right, ${colors.primary.main}, ${colors.accent.main})`,
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              textShadow: '0 0 20px rgba(0,79,79,0.3)',
+              textAlign: isMobile ? 'center' : 'left'
             }}
           >
             <p 
-              style={{
-                fontSize: '1.5rem',
-                color: colors.accent.main,
-                fontWeight: 'bold',
-                opacity: 1,
-                transition: 'opacity 0.5s ease',
-                textAlign: 'left'
-              }}
+            style={{
+            fontSize: isMobile ? '1.3rem' : '1.5rem',
+            color: colors.accent.main,
+            fontWeight: 'bold',
+            opacity: 1,
+            transition: 'opacity 0.5s ease',
+            textAlign: isMobile ? 'center' : 'left'
+            }}
             >
               {phrases[currentPhrase]}
             </p>
-          </div>
+          </h1>
           
           {/* Descrição com destaque em fato importante */}
           <p 
             style={{ 
               color: colors.dark.subtext,
-              fontSize: '1.2rem',
+              fontSize: isMobile ? '1.1rem' : '1.2rem',
               marginBottom: '2rem',
               lineHeight: '1.6',
-              textAlign: 'left'
+              textAlign: isMobile ? 'center' : 'left'
             }}
           >
             Somos um HUB de desenvolvedores com visão empreendedora que está
@@ -250,7 +269,8 @@ const HeroSection = () => {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          maxWidth: '500px'
+          maxWidth: isMobile ? '100%' : '500px',
+          width: isMobile ? '100%' : 'auto'
         }}>
           {/* Contagem regressiva com título */}
           <div style={{ width: '100%', textAlign: 'center', marginBottom: '2rem' }}>
@@ -266,29 +286,31 @@ const HeroSection = () => {
             </p>
             
             <div 
-              style={{
-                display: 'flex',
-                gap: '1rem',
-                justifyContent: 'center',
-                marginBottom: '1.5rem'
+            style={{
+            display: 'flex',
+            gap: isMobile ? '0.5rem' : '1rem',
+            justifyContent: 'center',
+            marginBottom: '1.5rem',
+              flexWrap: isMobile ? 'wrap' : 'nowrap'
               }}
-            >
+              >
               <div 
                 style={{
-                  backgroundColor: colors.dark.card,
-                  padding: '1rem',
-                  borderRadius: '0.5rem',
-                  width: '80px',
-                  border: `1px solid ${colors.primary.main}33`,
-                  boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
+                backgroundColor: colors.dark.card,
+                padding: isMobile ? '0.75rem' : '1rem',
+                borderRadius: '0.5rem',
+                width: isMobile ? '70px' : '80px',
+                border: `1px solid ${colors.primary.main}33`,
+                boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+                  margin: isMobile ? '0.25rem' : '0'
                 }}
               >
                 <div 
-                  style={{
-                    fontSize: '2rem',
-                    fontWeight: 'bold',
-                    color: 'white'
-                  }}
+                style={{
+                fontSize: isMobile ? '1.5rem' : '2rem',
+                fontWeight: 'bold',
+                color: 'white'
+                }}
                 >
                   {countdown.days}
                 </div>
@@ -504,10 +526,12 @@ const HeroSection = () => {
         <div 
           style={{
             display: 'flex',
-            gap: '1rem',
+            gap: isMobile ? '0.75rem' : '1rem',
             justifyContent: 'center',
             margin: '2rem auto',
-            flexWrap: 'wrap'
+            flexWrap: 'wrap',
+            flexDirection: isMobile ? 'column' : 'row',
+            width: isMobile ? '90%' : 'auto'
           }}
         >
           <button 

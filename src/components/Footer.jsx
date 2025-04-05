@@ -288,9 +288,11 @@ const Footer = () => {
               gap: '2rem'
             }}
           >
-            <a
-              href="#"
+            <button
               style={{
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
                 color: colors.dark.subtext,
                 textDecoration: 'none',
                 transition: 'color 0.3s ease'
@@ -299,10 +301,12 @@ const Footer = () => {
               onMouseOut={(e) => e.currentTarget.style.color = colors.dark.subtext}
             >
               Termos de Uso
-            </a>
-            <a
-              href="#"
+            </button>
+            <button
               style={{
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
                 color: colors.dark.subtext,
                 textDecoration: 'none',
                 transition: 'color 0.3s ease'
@@ -311,7 +315,7 @@ const Footer = () => {
               onMouseOut={(e) => e.currentTarget.style.color = colors.dark.subtext}
             >
               Política de Privacidade
-            </a>
+            </button>
           </div>
         </div>
       </div>
