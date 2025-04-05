@@ -21,7 +21,26 @@ npx eslint src
 if [ $? -eq 0 ]; then
   echo "✅ ESLint passou sem erros críticos"
 else
-  echo "⚠️ ESLint identificou problemas. Considere corrigir antes de fazer commit."
+  echo "⚠️ ESLint identificou problemas."
+  
+  # Perguntar se deseja executar o corretor automático de acessibilidade
+  read -p "Deseja tentar corrigir automaticamente os problemas de acessibilidade? (s/n): " fix_accessibility
+  
+  if [ "$fix_accessibility" = "s" ] || [ "$fix_accessibility" = "S" ]; then
+    echo "Executando corretor de acessibilidade..."
+    node fix-accessibility.js
+    
+    # Verificar novamente com ESLint
+    echo "Verificando novamente com ESLint..."
+    npx eslint src
+    
+    if [ $? -eq 0 ]; then
+      echo "✅ Todos os problemas foram corrigidos!"
+    else
+      echo "⚠️ Alguns problemas persistem. Você precisará corrigí-los manualmente."
+      echo "Consulte o guia em docs/ACCESSIBILITY.md para ajuda."
+    fi
+  fi
 fi
 
 # Executar o build

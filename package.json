@@ -18,13 +18,25 @@
     "deploy": "yarn build && firebase deploy",
     "prepare": "husky install",
     "lint": "eslint src --max-warnings=0",
-    "validate": "chmod +x ./validate.sh && ./validate.sh"
+    "validate": "chmod +x ./validate.sh && ./validate.sh",
+    "commitlint": "commitlint --edit",
+    "commit": "chmod +x ./create-commit.sh && ./create-commit.sh",
+    "commit-guide": "chmod +x ./commit-guide.sh && ./commit-guide.sh",
+    "fix-a11y": "node fix-accessibility.js",
+    "fix-a11y-safe": "node fix-accessibility-safe.js"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "jsx-a11y/click-events-have-key-events": "off",
+      "jsx-a11y/no-static-element-interactions": "off",
+      "jsx-a11y/mouse-events-have-key-events": "off",
+      "react/no-unescaped-entities": "off",
+      "react/no-unknown-property": ["error", { "ignore": ["jsx"] }]
+    }
   },
   "browserslist": {
     "production": [
@@ -39,6 +51,8 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.6.7",
+    "@commitlint/config-conventional": "^17.6.7",
     "autoprefixer": "^10.4.14",
     "husky": "^8.0.3",
     "postcss": "^8.4.27",

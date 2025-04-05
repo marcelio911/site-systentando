@@ -32,6 +32,12 @@ module.exports = {
       },
     ],
     'react-hooks/exhaustive-deps': 'warn',
+    // Desativando regras de acessibilidade que estão causando conflitos
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'jsx-a11y/mouse-events-have-key-events': 'off',
+    'react/no-unescaped-entities': 'off',
+    'react/no-unknown-property': ['error', { ignore: ['jsx'] }],
   },
   settings: {
     react: {

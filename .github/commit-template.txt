@@ -1,0 +1,23 @@
+# <tipo>(<escopo opcional>): <descrição>
+# |<---- Usar no máximo 72 caracteres ---->|
+
+# Exemplo de tipos de commit:
+# feat:     Nova funcionalidade
+# fix:      Correção de bug
+# docs:     Alterações na documentação
+# style:    Formatação, ponto e vírgula, etc; sem alteração funcional
+# refactor: Refatoração de código de produção
+# test:     Adição/refatoração de testes; sem alteração no código de produção
+# chore:    Mudanças em ferramentas, build, etc; sem alteração no código de produção
+# perf:     Melhoria de performance
+# ci:       Configuração de CI ou ferramentas relacionadas
+# build:    Alterações no sistema de build ou dependências
+# revert:   Reverte um commit anterior
+
+# Explicação detalhada do que foi feito (opcional)
+# |<---- Usar no máximo 72 caracteres ---->|
+
+# Referências (opcional):
+# Fixes #<número do issue>
+# Ref: #<número da referência>
+# Related: #<número da tarefa relacionada>

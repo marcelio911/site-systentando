@@ -30,14 +30,29 @@ npm start
 npm run build
 ```
 
-## Validação de Código
+# Validação e Padrões de Código
 
-Este projeto utiliza Husky para garantir a qualidade do código:
+Este projeto utiliza ferramentas automatizadas para garantir a qualidade do código:
+
+### Husky (Git Hooks)
 
 - **pre-commit**: Executa ESLint para validar o código antes do commit
 - **pre-push**: Executa build e testes completos antes do push
+- **commit-msg**: Valida as mensagens de commit com Commitlint
 
-Se necessário, você pode executar a validação manualmente:
+### Convenção de Commits
+
+Utilizamos uma convenção padronizada para mensagens de commit:
+
+```
+<tipo>(<escopo>): <descrição>
+```
+
+Exemplo: `feat(navbar): adicionar menu responsivo`
+
+[Ver documentação completa sobre commits](./docs/COMMIT_CONVENTION.md)
+
+# Execução de scripts manuais
 
 ```bash
 # Executar apenas ESLint
@@ -45,7 +60,18 @@ npm run lint
 
 # Executar validação completa (ESLint + build)
 npm run validate
+
+# Corrigir problemas de acessibilidade automaticamente
+npm run fix-a11y
 ```
+
+### Acessibilidade
+
+Este projeto segue as boas práticas de acessibilidade web. Temos ferramentas para detectar e corrigir problemas comuns de acessibilidade:
+
+- **Validação automática**: O ESLint identifica problemas de acessibilidade durante o desenvolvimento
+- **Correção assistida**: O script `fix-a11y` corrige automaticamente muitos problemas comuns
+- **Documentação**: Consulte [nosso guia de acessibilidade](./docs/ACCESSIBILITY.md) para orientações detalhadas
 
 ## Deployment CI/CD
 
@@ -76,6 +102,9 @@ chmod +x .github/workflows/firebase-setup.sh
   - `/assets`: Imagens e outros recursos estáticos
 - `/.github/workflows`: Configurações de CI/CD
 - `/.husky`: Git hooks para validação de código
+- `/docs`: Documentação do projeto
+  - `COMMIT_CONVENTION.md`: Padrões para mensagens de commit
+  - `ACCESSIBILITY.md`: Guia de acessibilidade
 
 ## Tecnologias Utilizadas
 
@@ -84,7 +113,8 @@ chmod +x .github/workflows/firebase-setup.sh
 - Firebase Hosting
 - GitHub Actions
 - Husky (Git Hooks)
-- ESLint
+- ESLint (incluindo plugins de acessibilidade)
+- Commitlint
 
 ## Licença
 
