@@ -197,21 +197,8 @@ const HeroSection = () => {
               textAlign: isMobile ? 'center' : 'left'
             }}
           >
-            Conexões que Transformam
+            Conexões que inspiram
           </h1>
-          
-          {/* Título secundário */}
-          <h2 
-            style={{
-              fontSize: isMobile ? '1.8rem' : '2rem',
-              fontWeight: 'bold',
-              color: 'white',
-              marginBottom: '1.5rem',
-              textAlign: isMobile ? 'center' : 'left'
-            }}
-          >
-            Systentando
-          </h2>
           
           {/* Subtítulo dinâmico */}
           <h1 
@@ -220,9 +207,9 @@ const HeroSection = () => {
               fontWeight: 'bold',
               color: 'white',
               marginBottom: '0.5rem',
-              background: `linear-gradient(to right, ${colors.primary.main}, ${colors.accent.main})`,
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              // background: `linear-gradient(to right, ${colors.primary.main}, ${colors.accent.main})`,
+              // WebkitBackgroundClip: 'text',
+              // WebkitTextFillColor: 'transparent',
               textShadow: '0 0 20px rgba(0,79,79,0.3)',
               textAlign: isMobile ? 'center' : 'left'
             }}
