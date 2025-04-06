@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { colors } from '../utils/colors';
 
 const ImpactoSocialSection = () => {
+  const navigate = useNavigate();
   // Dados de impacto social
   const impactoItems = [
     {
@@ -508,6 +510,7 @@ const ImpactoSocialSection = () => {
                 e.currentTarget.style.transform = 'scale(1)';
                 e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.2)';
               }}
+              onClick={() => navigate('/workflow')}
             >
               Quero fazer parte
             </button>

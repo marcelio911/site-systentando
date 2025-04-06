@@ -1,3 +1,22 @@
+## Rotas da Aplicação
+
+A aplicação possui duas rotas principais:
+
+- `/`: Página inicial da landing page, apresentando o ecossistema Systentando
+- `/workflow`: Página de jornada do desenvolvedor, explicando o processo de contribuição
+
+### Página de Workflow
+
+A página de workflow foi projetada para novos membros entenderem:
+
+- O que esperamos dos contribuidores
+- Benefícios de fazer parte da comunidade
+- Níveis de contribuição e recompensas
+- Toolkit de desenvolvimento disponível
+- Regras e diretrizes da comunidade
+
+Esta página está estruturada com navegação por seções e pode ser acessada através dos botões "Junte-se à nossa comunidade", "Quero Participar" e "Quero fazer parte" na página inicial.
+
 # Systentando Landing Page
 
 ## Sobre o Projeto

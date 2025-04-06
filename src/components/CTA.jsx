@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { colors } from '../utils/colors';
 
 const CTA = () => {
+  const navigate = useNavigate();
   return (
     <div className="w-full max-w-4xl mx-auto px-6 py-20 text-center">
       <h2 className="text-3xl font-bold mb-6">Pronto para construir o futuro conosco?</h2>
@@ -24,6 +26,7 @@ const CTA = () => {
           <button 
             className="px-6 py-3 rounded-r-lg text-white font-medium"
             style={{ backgroundColor: colors.accent.main }}
+            onClick={() => navigate('/workflow')}
           >
             Quero Participar
           </button>

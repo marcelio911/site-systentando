@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { colors } from '../utils/colors';
 
 const JornadaEmpreendedora = () => {
+  const navigate = useNavigate();
   const targetGroups = [
     {
       title: "Desenvolvedores",
@@ -205,6 +207,7 @@ const JornadaEmpreendedora = () => {
             }}
             onMouseOver={(e) => e.currentTarget.style.opacity = '0.9'}
             onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
+            onClick={() => navigate('/workflow')}
           >
             Junte-se à Nossa Comunidade →
           </button>
