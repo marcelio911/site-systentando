@@ -23,7 +23,7 @@ const ComponentSkeleton = () => (
       backgroundColor: colors.dark.border,
       borderRadius: '4px'
     }} />
-    <style jsx>{`
+    <style className="jsx-styles">{`
       @keyframes pulse {
         0% { opacity: 0.6; }
         50% { opacity: 0.8; }

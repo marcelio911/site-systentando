@@ -491,17 +491,19 @@ const ChatbotModal = ({ isOpen, onClose }) => {
       }}
     >
       <div
-        style={{
-          backgroundColor: colors.dark.card,
-          borderRadius: '1rem',
-          width: '100%',
-          maxWidth: '500px',
-          maxHeight: '600px',
-          display: 'flex',
-          flexDirection: 'column',
-          overflow: 'hidden',
-          boxShadow: '0 10px 25px rgba(0, 0, 0, 0.3)'
-        }}
+      style={{
+        backgroundColor: colors.dark.card,
+        borderRadius: '1rem',
+        width: '100%',
+        maxWidth: '800px',  // Aumentado para desktop
+        maxHeight: '80vh',  // Usando viewport height para responsividade
+        height: window.innerWidth > 768 ? '700px' : '500px',  // Responsivo baseado no tamanho da tela
+        display: 'flex',
+        flexDirection: 'column',
+        overflow: 'hidden',
+        boxShadow: '0 10px 25px rgba(0, 0, 0, 0.3)',
+        margin: 'auto'      // Centraliza melhor no desktop
+      }}
       >
         {/* Header */}
         <div

@@ -37,6 +37,9 @@ const App = lazy(() => import('./App'));
 // Importar a página de workflow
 const WorkflowPage = lazy(() => import('./pages/Workflow'));
 
+// Importar a página de gamificação
+const GamificationPage = lazy(() => import('./pages/Gamification'));
+
 const AppRoutes = () => {
   return (
     <Router>
@@ -44,6 +47,7 @@ const AppRoutes = () => {
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/workflow" element={<WorkflowPage />} />
+          <Route path="/gamification" element={<GamificationPage />} />
         </Routes>
       </Suspense>
     </Router>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { colors } from '../utils/colors';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Trophy } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const NavigationBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -57,6 +58,7 @@ const NavigationBar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [navItems]);
   
+  // Navegação principal
   return (
     <nav 
       style={{
@@ -207,62 +209,134 @@ const NavigationBar = () => {
                 {item.label}
               </a>
             ))}
+            
+            <div style={{
+              marginTop: '1rem',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.75rem',
+              width: '100%',
+              padding: '0 2rem'
+            }}>
+              <Link
+                to="/gamification"
+                style={{
+                  backgroundColor: colors.categories.personal,
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  borderRadius: '2rem',
+                  border: 'none',
+                  fontWeight: 'bold',
+                  fontSize: '1rem',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  boxShadow: `0 4px 10px ${colors.categories.personal}44`,
+                  textDecoration: 'none',
+                  textAlign: 'center',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem'
+                }}
+                onClick={() => setMenuOpen(false)}
+              >
+                <Trophy size={18} />
+                Arena
+              </Link>
+              
+              <button 
+                style={{
+                  backgroundColor: colors.accent.main,
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  borderRadius: '2rem',
+                  border: 'none',
+                  fontWeight: 'bold',
+                  fontSize: '1rem',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  boxShadow: `0 4px 10px ${colors.accent.main}44`
+                }}
+                onClick={() => {
+                  document.querySelector('#jornada').scrollIntoView({
+                    behavior: 'smooth'
+                  });
+                  setMenuOpen(false);
+                }}
+              >
+                Participe
+              </button>
+            </div>
+          </div>
+        )}
+        
+        {/* Botões de ação (desktop) */}
+        {!isMobile && (
+          <div style={{ display: 'flex', gap: '0.75rem' }}>
+            <Link 
+              to="/gamification"
+              style={{
+                backgroundColor: colors.categories.personal,
+                color: 'white',
+                padding: '0.5rem 1rem',
+                borderRadius: '2rem',
+                border: 'none',
+                fontWeight: 'bold',
+                fontSize: '0.9rem',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                boxShadow: `0 4px 10px ${colors.categories.personal}44`,
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.opacity = '0.9';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = `0 6px 12px ${colors.categories.personal}66`;
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.opacity = '1';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = `0 4px 10px ${colors.categories.personal}44`;
+              }}
+            >
+              <Trophy size={16} />
+              Arena
+            </Link>
+            
             <button 
               style={{
                 backgroundColor: colors.accent.main,
                 color: 'white',
-                padding: '0.75rem 1.5rem',
+                padding: '0.5rem 1rem',
                 borderRadius: '2rem',
                 border: 'none',
                 fontWeight: 'bold',
-                fontSize: '1rem',
+                fontSize: '0.9rem',
                 cursor: 'pointer',
-                marginTop: '1rem',
                 transition: 'all 0.3s ease',
                 boxShadow: `0 4px 10px ${colors.accent.main}44`
               }}
-              onClick={() => {
-                document.querySelector('#jornada').scrollIntoView({
-                  behavior: 'smooth'
-                });
-                setMenuOpen(false);
+              onMouseOver={(e) => {
+                e.currentTarget.style.opacity = '0.9';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = `0 6px 12px ${colors.accent.main}66`;
               }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.opacity = '1';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = `0 4px 10px ${colors.accent.main}44`;
+              }}
+              onClick={() => document.querySelector('#jornada').scrollIntoView({
+                behavior: 'smooth'
+              })}
             >
               Participe
             </button>
           </div>
         )}
-        
-        {/* Botão de ação (desktop) */}
-        {!isMobile && <button 
-          style={{
-            backgroundColor: colors.accent.main,
-            color: 'white',
-            padding: '0.5rem 1rem',
-            borderRadius: '2rem',
-            border: 'none',
-            fontWeight: 'bold',
-            fontSize: '0.9rem',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-            boxShadow: `0 4px 10px ${colors.accent.main}44`
-          }}
-          onMouseOver={(e) => {
-            e.currentTarget.style.opacity = '0.9';
-            e.currentTarget.style.transform = 'translateY(-2px)';
-            e.currentTarget.style.boxShadow = `0 6px 12px ${colors.accent.main}66`;
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.opacity = '1';
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = `0 4px 10px ${colors.accent.main}44`;
-          }}
-          onClick={() => document.querySelector('#jornada').scrollIntoView({
-            behavior: 'smooth'
-          })}
-        >
-          Participe
-        </button>}
       </div>
     </nav>
   );
