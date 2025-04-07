@@ -207,7 +207,11 @@ const JornadaEmpreendedora = () => {
             }}
             onMouseOver={(e) => e.currentTarget.style.opacity = '0.9'}
             onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
-            onClick={() => navigate('/workflow')}
+            onClick={() => {
+              navigate('/workflow');
+              // Garante que a página role para o topo
+              window.scrollTo(0, 0);
+            }}
           >
             Junte-se à Nossa Comunidade →
           </button>

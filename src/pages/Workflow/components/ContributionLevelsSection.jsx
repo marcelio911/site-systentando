@@ -145,16 +145,16 @@ const ContributionLevelsSection = () => {
     {
       level: 1,
       title: 'Explorador',
-      description: 'Primeiro nível para os novos membros que estão conhecendo o ecossistema e começando suas primeiras contribuições.',
+      description: 'Primeiro nível para os novos membros, obtido apenas por fornecer dados para nossos modelos de machine learning e participar das pesquisas iniciais.',
       requirements: [
         'Cadastro completo no portal de desenvolvedores',
-        'Primeira contribuição aceita (documentação, bug fix simples)',
-        'Participação ativa nas discussões do fórum'
+        'Permissão para coleta de dados de uso para modelos de ML',
+        'Participação em pesquisas de UX e feedback'
       ],
       rewards: [
-        'Acesso ao DevPack básico',
+        'Acesso ao DevPack básico (ferramentas de produtividade)',
         'Acesso ao ZEN Launcher versão padrão',
-        'Tutoriais e documentação técnica completa'
+        'Insights personalizados baseados em seus dados'
       ]
     },
     {
@@ -167,9 +167,9 @@ const ContributionLevelsSection = () => {
         'Solução de problemas de complexidade média'
       ],
       rewards: [
-        'Acesso ao DevPack completo',
-        'Acesso ao ZEN Launcher e Meu Nutri',
-        'Workshops exclusivos sobre desenvolvimento e empreendedorismo'
+        'DevPack completo com templates avançados de código',
+        'Acesso ao ZEN Launcher e Meu Nutri completos',
+        'Acesso a modelos de ML básicos para integração em projetos'
       ]
     },
     {
@@ -183,8 +183,8 @@ const ContributionLevelsSection = () => {
       ],
       rewards: [
         'Acesso a todo o ecossistema Systentando',
-        'Participação em Rodadas de Negócios',
-        'Dados estratégicos de mercado e insights de negócios'
+        'API completa para todos os modelos de ML treinados',
+        'Conjuntos de dados anonimizados para análise e experimentação'
       ]
     },
     {
@@ -197,9 +197,9 @@ const ContributionLevelsSection = () => {
         'Capacidade de tomar decisões técnicas complexas'
       ],
       rewards: [
-        'Acesso privilegiado a todas as ferramentas de negócio',
-        'Participação nas decisões estratégicas do ecossistema',
-        'Suporte para desenvolvimento do próprio negócio no ecossistema'
+        'Acesso antecipado a modelos experimentais de IA',
+        'Infraestrutura para treinamento de modelos personalizados',
+        'Co-autoria em publicações sobre os resultados dos modelos'
       ]
     }
   ];
@@ -233,10 +233,10 @@ const ContributionLevelsSection = () => {
           color: colors.dark.subtext,
           textAlign: 'center',
           lineHeight: 1.6
-        }}
-      >
-        Seu progresso na comunidade é reconhecido através de níveis que desbloqueiam
-        acesso a mais recursos e benefícios
+          }}
+          >
+          Seu progresso na comunidade é reconhecido através de níveis que desbloqueiam
+          acesso a mais recursos, ferramentas de Machine Learning e conjuntos de dados para análise.
       </p>
       
       <div

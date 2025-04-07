@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { colors } from '../../../utils/colors';
+import ChatbotModal from '../../../components/ChatbotModal';
 
 const JoinCommunitySection = () => {
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
+  
   return (
     <section
       style={{
@@ -67,7 +70,8 @@ const JoinCommunitySection = () => {
             lineHeight: 1.6
           }}
         >
-          Junte-se à nossa comunidade de desenvolvedores empreendedores e comece sua jornada para criar produtos de impacto enquanto desenvolve seu próprio potencial empreendedor.
+          Junte-se à nossa comunidade de desenvolvedores empreendedores e comece sua jornada para criar produtos de impacto,
+          utilizando o poder do Machine Learning para gerar soluções personalizadas e adaptativas que evoluem com o uso.
         </p>
         
         <div
@@ -101,9 +105,13 @@ const JoinCommunitySection = () => {
               e.currentTarget.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.2)';
               e.currentTarget.style.backgroundColor = colors.accent.main;
             }}
+            onClick={() => setIsChatbotOpen(true)}
           >
             Iniciar minha jornada
           </button>
+          
+          {/* Chatbot Modal */}
+          <ChatbotModal isOpen={isChatbotOpen} onClose={() => setIsChatbotOpen(false)} />
           
           <p
             style={{

@@ -130,10 +130,10 @@ const ToolkitSection = () => {
     },
     {
       title: 'Dados e Analytics',
-      description: 'Ferramentas para coleta, análise e visualização de dados de negócios aplicáveis em diversos contextos empreendedores.',
+      description: 'Ferramentas para coleta, análise e visualização de dados comportamentais aplicando Machine Learning em diversos contextos.',
       features: [
         'Dashboards customizáveis para métricas de negócios',
-        'Modelos preditivos para análise de tendências',
+        'Modelos preditivos treinados com dados coletados',
         'Integração com fontes externas de dados de mercado'
       ],
       icon: '📊'

@@ -11,6 +11,7 @@ A página de workflow foi projetada para novos membros entenderem:
 
 - O que esperamos dos contribuidores
 - Benefícios de fazer parte da comunidade
+- Machine Learning e tecnologia adaptativa
 - Níveis de contribuição e recompensas
 - Toolkit de desenvolvimento disponível
 - Regras e diretrizes da comunidade

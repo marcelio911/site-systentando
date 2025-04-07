@@ -26,7 +26,11 @@ const CTA = () => {
           <button 
             className="px-6 py-3 rounded-r-lg text-white font-medium"
             style={{ backgroundColor: colors.accent.main }}
-            onClick={() => navigate('/workflow')}
+            onClick={() => {
+              navigate('/workflow');
+              // Garante que a página role para o topo
+              window.scrollTo(0, 0);
+            }}
           >
             Quero Participar
           </button>

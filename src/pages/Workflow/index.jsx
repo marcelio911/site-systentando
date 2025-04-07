@@ -38,6 +38,7 @@ const WorkflowNavBar = lazy(() => import('./components/WorkflowNavBar'));
 const WorkflowHeader = lazy(() => import('./components/WorkflowHeader'));
 const ExpectationsSection = lazy(() => import('./components/ExpectationsSection'));
 const BenefitsSection = lazy(() => import('./components/BenefitsSection'));
+const DataDrivenSection = lazy(() => import('./components/DataDrivenSection'));
 const ContributionLevelsSection = lazy(() => import('./components/ContributionLevelsSection'));
 const ToolkitSection = lazy(() => import('./components/ToolkitSection'));
 const CommitmentRulesSection = lazy(() => import('./components/CommitmentRulesSection'));
@@ -65,6 +66,10 @@ const WorkflowPage = () => {
       
       <Suspense fallback={<ComponentSkeleton />}>
         <BenefitsSection />
+      </Suspense>
+      
+      <Suspense fallback={<ComponentSkeleton />}>
+        <DataDrivenSection />
       </Suspense>
       
       <Suspense fallback={<ComponentSkeleton />}>

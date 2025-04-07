@@ -510,7 +510,11 @@ const ImpactoSocialSection = () => {
                 e.currentTarget.style.transform = 'scale(1)';
                 e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.2)';
               }}
-              onClick={() => navigate('/workflow')}
+              onClick={() => {
+                navigate('/workflow');
+                // Garante que a página role para o topo
+                window.scrollTo(0, 0);
+              }}
             >
               Quero fazer parte
             </button>

@@ -63,7 +63,7 @@ const CommitmentRulesSection = () => {
           }}
         >
           Para construir uma comunidade forte e produtiva, estabelecemos regras claras e
-          recompensas justas que garantem um ambiente colaborativo e de crescimento mútuo.
+          recompensas justas, focadas no acesso a ferramentas avançadas e modelos de machine learning.
         </p>
         
         {/* Tabs */}

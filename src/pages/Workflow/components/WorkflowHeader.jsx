@@ -54,7 +54,8 @@ const WorkflowHeader = () => {
           }}
         >
           Descubra como você pode se tornar um contribuidor valioso para o ecossistema Systentando
-          e potencializar seu próprio crescimento com nossas ferramentas exclusivas.
+          e potencializar seu próprio crescimento com nossas ferramentas exclusivas, impulsionadas por
+          Machine Learning e análise avançada de dados.
         </p>
         
         <div
@@ -120,7 +121,7 @@ const WorkflowHeader = () => {
                 borderRadius: '50%'
               }}
             />
-            <span>Empreendedorismo</span>
+            <span>Machine Learning</span>
           </div>
           
           <div

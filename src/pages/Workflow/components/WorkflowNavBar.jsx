@@ -38,6 +38,7 @@ const WorkflowNavBar = () => {
   const sections = [
     { id: 'expectations', label: 'Expectativas' },
     { id: 'benefits', label: 'Benefícios' },
+    { id: 'data-driven', label: 'Machine Learning' },
     { id: 'levels', label: 'Níveis' },
     { id: 'toolkit', label: 'Ferramentas' },
     { id: 'rules', label: 'Regras' }
